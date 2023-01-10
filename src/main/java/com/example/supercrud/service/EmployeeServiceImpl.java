@@ -26,12 +26,19 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public void updateEmployee(Employee employee, Long id) {
-
+    public Employee updateEmployee(Employee employee, Long Id) {
+        if(employeeRepository.existsById(Id)){
+            employee.setEmployeeId(Id);
+            return employeeRepository.save(employee);
+        }
+        return null;
     }
 
     @Override
-    public void deleteEmployee(Long Id) {
-
+    public String deleteEmployee(Long Id) {
+        if(employeeRepository.existsById(Id)){
+            employeeRepository.deleteById(Id);
+            return "Employee deleted";}
+        return "No matching ID";
     }
 }

@@ -1,10 +1,9 @@
 package com.example.supercrud.service;
 
 import com.example.supercrud.entity.Employee;
-import org.springframework.context.annotation.ComponentScan;
 
 import java.util.List;
-@ComponentScan
+
 public interface EmployeeService {
     //Create
     Employee createEmployee(Employee employee);
@@ -13,8 +12,8 @@ public interface EmployeeService {
     List<Employee> readEmployee();
 
     //Update
-    void updateEmployee(Employee employee, Long id);
+    Employee updateEmployee(Employee employee, Long id);
 
     //Delete
-    void deleteEmployee(Long Id);
+    String deleteEmployee(Long Id);
 }
